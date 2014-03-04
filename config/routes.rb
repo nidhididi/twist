@@ -1,12 +1,20 @@
 Twist::Application.routes.draw do
+
+  get "users/show"
+  get "users/index"
+  get "comments/recent"
+
+ resources :comments
+
+ resources :tweets
+
+
   get "welcome/index"
   get "welcome/about"
   get "welcome/contact"
-  resources :comments
+ 
 
-  resources :tweets
-
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
